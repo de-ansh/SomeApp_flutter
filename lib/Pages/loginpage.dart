@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:someapp/Pages/bg-image.dart';
+import 'package:someapp/Pages/homepage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,31 +15,62 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Login page"),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Form(child: Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: "Enter Username",
-                    labelText: "Username",
-                    ),
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: "Enter Password",
-                    labelText: "Password",
-                    ),
-                ),
-              ],
-            ))
-          ],
+        appBar: AppBar(
+          title: Text("Login page"),
         ),
-      ),
-    );
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            BgImage(),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SingleChildScrollView(
+                  child: Card(
+                    child: Column(
+                      children: [
+                        Form(
+                            child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            children: [
+                              TextField(
+                                decoration: InputDecoration(
+                                  hintText: "Enter Username",
+                                  labelText: "Username",
+                                ),
+                              ),
+                              TextField(
+                                obscureText: true,
+                                decoration: InputDecoration(
+                                  hintText: "Enter Password",
+                                  labelText: "Password",
+                                ),
+                              ),
+                            ],
+                          ),
+                        )),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        RaisedButton(
+                          onPressed: () {
+                            //Navigator.push(
+                            //  context,
+                            //MaterialPageRoute(
+                            //  builder: (context) => HomePage()));
+                            Navigator.pushNamed(context, "/home");
+                          },
+                          child: Text("Sign in"),
+                          color: Color.fromARGB(255, 145, 148, 151),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }

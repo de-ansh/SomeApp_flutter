@@ -1,3 +1,4 @@
+import 'package:someapp/Pages/homepage.dart';
 import 'package:someapp/Pages/loginpage.dart';
 
 
@@ -13,6 +14,10 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
+      routes: {
+        "/login":(context) => LoginPage(),
+        "/home":(context) => HomePage(),
+      },
     ),
   );
 }

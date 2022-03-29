@@ -7,7 +7,9 @@ class BgImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       "assets/Back.jpg",
-      fit: BoxFit.contain,
+      fit: BoxFit.cover,
+      color: Colors.black.withOpacity(0.7),
+      colorBlendMode: BlendMode.darken,
     );
   }
 }
