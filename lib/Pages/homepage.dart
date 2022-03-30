@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text("Some App"),
+        
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

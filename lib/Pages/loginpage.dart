@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:someapp/Pages/bg-image.dart';
 import 'package:someapp/Pages/homepage.dart';
+import 'package:someapp/utils/Constants.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -53,16 +54,20 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: 20,
                         ),
-                        RaisedButton(
-                          onPressed: () {
-                            //Navigator.push(
-                            //  context,
-                            //MaterialPageRoute(
-                            //  builder: (context) => HomePage()));
-                            Navigator.pushNamed(context, "/home");
-                          },
-                          child: Text("Sign in"),
-                          color: Color.fromARGB(255, 145, 148, 151),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RaisedButton(
+                            onPressed: () {
+                              //Navigator.push(
+                              //  context,
+                              //MaterialPageRoute(
+                              //  builder: (context) => HomePage()));
+                              Constants.prefs.setBool("loggedin", true);
+                              Navigator.pushReplacementNamed(context, "/home");
+                            },
+                            child: Text("Sign in"),
+                            color: Color.fromARGB(255, 145, 148, 151),
+                          ),
                         )
                       ],
                     ),
