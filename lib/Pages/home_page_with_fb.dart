@@ -2,19 +2,19 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:someapp/widgets/drawer.dart';
 import 'package:http/http.dart' as http;
-import 'package:someapp/widgets/bg-image.dart';
+
 import 'dart:convert';
 
 import 'package:someapp/utils/Constants.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePageFb extends StatefulWidget {
+  const HomePageFb({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePageFb> createState() => _HomePageFbState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageFbState extends State<HomePageFb> {
   TextEditingController _nameController = TextEditingController();
   var myText = "Change me";
   var url = Uri.parse('https://jsonplaceholder.typicode.com/photos');
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
-  getdata() async {
+  Future getdata() async {
     // ignore: unused_local_variable
     var res = await http.get(url);
     data = jsonDecode(res.body);

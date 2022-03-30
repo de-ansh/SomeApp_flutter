@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:someapp/Pages/bg-image.dart';
+import 'package:someapp/widgets/bg-image.dart';
 import 'package:someapp/Pages/homepage.dart';
 import 'package:someapp/utils/Constants.dart';
 
